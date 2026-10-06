@@ -6,8 +6,9 @@ description: 보고서 작업의 첫 단계(취합). 기준 문서에서 제출 
 # collect-data — 취합
 
 ## 입력
-- `resources/기준/`: 공문(이미지), 사업계획서(PDF), 위원회 회의록(한글 hwpx)
-- `resources/원본/`: 실적 엑셀, 대시보드 캡처(PNG), 설문 원자료(CSV, 개인정보 포함)
+`resources/`의 01~06 파일
+- 기준 문서: 공문(이미지), 사업계획서(PDF), 위원회 회의록(한글 hwpx)
+- 부서 실적 자료: 실적 엑셀, 대시보드 캡처(PNG), 설문 원자료(CSV, 개인정보 포함)
 
 ## 출력 (`resources/취합/`)
 | 파일 | 내용 |
@@ -45,7 +46,7 @@ description: 보고서 작업의 첫 단계(취합). 기준 문서에서 제출 
 ### 3단계. 개인정보 가리기 → `<설문파일명>_masked.csv`
 1. 설문 파일은 첫 줄(열 이름)만 확인한다. 내용을 읽거나 출력하지 않는다.
 2. 이 스킬 폴더의 스크립트를 실행한다.
-   `python .agents/skills/collect-data/scripts/mask_pii.py "resources/원본/<설문파일>.csv" "resources/취합/"`
+   `python .agents/skills/collect-data/scripts/mask_pii.py "resources/<설문파일>.csv" "resources/취합/"`
 3. 출력되는 '치환 건수'와 '잔여 패턴(0이어야 함)'만 보고한다.
 
 ### 4단계. 팩트시트와 충돌 → `fact_sheet.csv`, `conflicts.md`

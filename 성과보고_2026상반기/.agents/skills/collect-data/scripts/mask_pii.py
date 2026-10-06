@@ -4,7 +4,7 @@
 사용법:
     python mask_pii.py <원본.csv> <출력폴더 또는 출력파일.csv>
 예:
-    python .agents/skills/collect-data/scripts/mask_pii.py "resources/원본/06_비교과_만족도조사_원자료.csv" "resources/취합/"
+    python .agents/skills/collect-data/scripts/mask_pii.py "resources/06_비교과_만족도조사_원자료.csv" "resources/취합/"
 """
 import csv
 import os

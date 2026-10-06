@@ -8,7 +8,7 @@ description: 보고서 작업의 두 번째 단계(작성). 취합 결과(요구
 ## 입력
 - `resources/취합/requirements.md`, `fact_sheet.csv`, `conflicts.md`
 - `templates/성과보고서_양식.md`
-- 근거 확인용: `resources/기준/` 회의록
+- 근거 확인용: `resources/04_…회의록.hwpx`
 
 ## 출력 (`reports/초안/`)
 | 파일 | 내용 |
