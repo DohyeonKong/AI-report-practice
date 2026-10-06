@@ -1,6 +1,6 @@
 ---
 name: deliver
-description: 보고서 작업의 마지막 단계(전달). 검토가 끝난 초안으로 결재용 최종본(docx)을 만들고, 총장 보고 요약·보고 메일·학과 공유문·부서별 확인 요청 메일·예상 질의응답을 독자에 맞춰 만들 때 사용한다.
+description: 보고서 작업의 마지막 단계(전달). 검토가 끝난 초안으로 결재용 최종본(docx·hwpx)을 만들고, 총장 보고 요약·보고 메일·학과 공유문·부서별 확인 요청 메일·예상 질의응답을 독자에 맞춰 만들 때 사용한다.
 ---
 
 # deliver — 전달
@@ -18,7 +18,7 @@ description: 보고서 작업의 마지막 단계(전달). 검토가 끝난 초�
 | `학과공유문.md` | 학과장·교직원 | 1쪽 이내 |
 | `부서별_확인요청.md` | 자료를 낸 부서 | 부서당 5줄 이내 |
 | `예상질의응답.md` | 보고자 본인 | 5~7문항 |
-| `결재용_최종본.md`, `결재용_최종본.docx` | 결재·제출 | 양식 분량 이내 |
+| `결재용_최종본.md`, `결재용_최종본.docx`, `결재용_최종본.hwpx` | 결재·제출 | 양식 분량 이내 |
 
 ## 절차
 
@@ -37,11 +37,12 @@ description: 보고서 작업의 마지막 단계(전달). 검토가 끝난 초�
 ### 3단계. 결재용 최종본
 1. `draft_v2.md`에서 팩트 주석(`<!-- fact: … -->`)과 작업 메모를 지워 `결재용_최종본.md`로 저장한다.
    그림 경로는 `reports/전달/` 기준으로 고친다(예: `charts/…` → `../초안/charts/…`).
-2. docx로 변환한다.
+2. docx와 한글(hwpx)로 변환한다.
    `python .agents/skills/deliver/scripts/md_to_docx.py "reports/전달/결재용_최종본.md" "reports/전달/결재용_최종본.docx"`
-   (python-docx가 없으면 사용자에게 묻고 `pip install python-docx`)
+   `python .agents/skills/deliver/scripts/md_to_hwpx.py "reports/전달/결재용_최종본.md" "reports/전달/결재용_최종본.hwpx"`
+   (python-docx·python-hwpx가 없으면 사용자에게 묻고 `pip install python-docx python-hwpx`. python-hwpx는 Python 3.10 이상)
 3. 최종 점검: 분량, 표 깨짐, 차트 포함, 주석 잔존 0건, `[담당부서 확인 필요]`가 남아 있으면 목록으로 보고.
-4. 한글(HWP) 제출이면, docx를 한글에서 열어 기관 양식에 붙여 넣도록 안내한다.
+4. 한글 제출이면, hwpx를 한글에서 열어 기관 양식에 붙여 넣도록 안내한다.
 
 ## 검증 기준
 - 산출물 간 숫자 일치
